@@ -1,31 +1,31 @@
 import { Link } from 'react-router-dom';
 
-const Header = () => {
-  return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <Link className="navbar-brand" to="/">
-        Navbar
-      </Link>
-      <button
-        className="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span className="navbar-toggler-icon"></span>
-      </button>
+const Header = ({ currentUser }) => {
+  const links = [
+    !currentUser && { label: 'Sign Up', href: '/signup' },
+    !currentUser && { label: 'Sign In', href: '/signin' },
+    currentUser && { label: 'Sell Tickets', href: '/tickets/new' },
+    currentUser && { label: 'My Orders', href: '/orders' },
+    currentUser && { label: 'Sign Out', href: '/signout' },
+  ]
+    .filter((linkConfig) => linkConfig)
+    .map(({ label, href }) => {
+      return (
+        <li key={href} className="nav-item">
+          <Link to={href}>
+            <span className="nav-link">{label}</span>
+          </Link>
+        </li>
+      );
+    });
 
-      <div className="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul className="navbar-nav mr-auto">
-          <li className="nav-item">
-            <Link className="nav-link" to="/">
-              Home
-            </Link>
-          </li>
-        </ul>
+  return (
+    <nav className="navbar navbar-light bg-light">
+      <Link to={'/'}>
+        <span className="navbar-brand">Logo</span>
+      </Link>
+      <div className="d-flex justify-content-end">
+        <ul className="nav d-flex align-items-center">{links}</ul>
       </div>
     </nav>
   );
