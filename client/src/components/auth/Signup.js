@@ -18,39 +18,54 @@ const Signup = (props) => {
   };
 
   return (
-    <div className="container">
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <Field
-          name="email"
-          type="email"
-          component={renderField}
-          label="Email"
+    <div className="row no-gutters">
+      <div class="col-md-8">
+        <img
+          className="img-fluid"
+          src={process.env.PUBLIC_URL + '/images/teamwork.jpg'}
         />
-        <Field
-          name="password"
-          type="password"
-          component={renderField}
-          label="Password"
-        />
-        <Field
-          name="confirmPassword"
-          type="password"
-          component={renderField}
-          label="Confirm Password"
-        />
-        <div>
-          <div className="form-group">
-            {error ? <span className="text-danger">{error}</span> : ''}
+      </div>
+      <div class="col-md-4">
+        <div className="h-100 d-flex justify-content-center align-items-center">
+          <div className="container">
+            <h2>
+              Sigup <i className="fas fa-sign-in-alt"></i>
+            </h2>
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <Field
+                name="email"
+                type="email"
+                component={renderField}
+                label="Email"
+              />
+              <Field
+                name="password"
+                type="password"
+                component={renderField}
+                label="Password"
+              />
+              <Field
+                name="confirmPassword"
+                type="password"
+                component={renderField}
+                label="Confirm Password"
+              />
+              <div>
+                <div className="form-group">
+                  {error ? <span className="text-danger">{error}</span> : ''}
+                </div>
+                <button
+                  className="btn btn-primary"
+                  type="submit"
+                  disabled={submitting}
+                >
+                  Submit
+                </button>
+              </div>
+            </form>
           </div>
-          <button
-            className="btn btn-primary"
-            type="submit"
-            disabled={submitting}
-          >
-            Submit
-          </button>
         </div>
-      </form>
+      </div>
     </div>
   );
 };
