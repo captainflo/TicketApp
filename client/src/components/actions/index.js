@@ -1,13 +1,12 @@
 import axios from 'axios';
 import { AUTH_USER, AUTH_ERROR, EDIT_USER, FETCH_USER } from './types';
 
+//////////////////////////////// Authentification //////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////
 // Signup
 export const signup = (formProps, callback) => async (dispatch) => {
   try {
-    const response = await axios.post(
-      `http://localhost:3001/signup`,
-      formProps
-    );
+    const response = await axios.post(`/signup`, formProps);
     localStorage.setItem('token', response.data.token);
     dispatch({ type: AUTH_USER, payload: response.data.token });
     dispatch({ type: AUTH_ERROR, payload: '' });
@@ -20,10 +19,7 @@ export const signup = (formProps, callback) => async (dispatch) => {
 // Signin
 export const signin = (formProps, callback) => async (dispatch) => {
   try {
-    const response = await axios.post(
-      `http://localhost:3001/signin`,
-      formProps
-    );
+    const response = await axios.post(`/signin`, formProps);
     localStorage.setItem('token', response.data.token);
     dispatch({ type: AUTH_USER, payload: response.data.token });
     dispatch({ type: AUTH_ERROR, payload: '' });
@@ -43,7 +39,11 @@ export const signout = () => async (dispatch) => {
 // fetch User
 export const fetchUser = () => async (dispatch) => {
   const token = { token: localStorage.token };
-  const res = await axios.post('/api/user', token);
+  const res = await axios
+    .post('/api/user', token)
+    .then(
+      async (response) => await axios.get(`/api/user/${response.data.sub}`)
+    );
   dispatch({ type: FETCH_USER, payload: res.data });
 };
 
@@ -65,4 +65,12 @@ export const deleteUser = (id, callback) => async (dispatch) => {
   dispatch({ type: EDIT_USER, payload: '' });
   localStorage.removeItem('token');
   callback(); /* history callback */
+};
+
+////////////////////////////////////////// Cloudinary ////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+
+// Cloudinary Delete Image
+export const deleteImage = (image) => async () => {
+  await axios.post(`/api/delete/image`, image);
 };

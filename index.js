@@ -8,6 +8,7 @@ const cookieSession = require('cookie-session');
 const passport = require('passport');
 const cors = require('cors');
 
+// Models
 require('./models/User');
 require('./services/passport');
 
@@ -27,6 +28,7 @@ app.use(passport.session());
 
 // Routes
 require('./routes/authRoutes')(app);
+require('./routes/cloudinaryRoutes')(app);
 
 // Connect Mongo Atlas
 mongoose.connect(keys.mongoURI, {

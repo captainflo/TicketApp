@@ -6,6 +6,13 @@ const bcrypt = require('bcrypt-nodejs');
 const userSchema = new Schema({
   email: { type: String, unique: true, lowercase: true },
   password: String,
+  avatar: {
+    type: String,
+    default:
+      'https://helenkellerfestival.com/site/wp-content/uploads/2018/06/ticket.jpg',
+  },
+  firstName: String,
+  lastName: String,
 });
 
 // On save Hook, encrypt password

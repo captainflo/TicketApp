@@ -1,10 +1,10 @@
 import React from 'react';
-import renderField from './Form/renderField';
+import renderField from './form/renderField';
 import { reduxForm, Field } from 'redux-form';
 import * as actions from '../actions';
 import { compose } from 'redux';
 import { connect, useSelector } from 'react-redux';
-import validate from './Form/validation';
+import validate from './form/validation';
 
 const Signin = (props) => {
   const error = useSelector((state) => state.auth.errorMessage);
@@ -49,7 +49,7 @@ const Signin = (props) => {
                   {error ? <span className="text-danger">{error}</span> : ''}
                 </div>
                 <button
-                  className="btn btn-primary"
+                  className="btn btn-primary shadow rounded"
                   type="submit"
                   disabled={submitting}
                 >

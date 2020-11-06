@@ -1,10 +1,10 @@
 import React from 'react';
-import renderField from './Form/renderField';
+import renderField from './form/renderField';
 import { reduxForm, Field } from 'redux-form';
 import * as actions from '../actions';
 import { compose } from 'redux';
 import { connect, useSelector } from 'react-redux';
-import validate from './Form/validation';
+import validate from './form/validation';
 
 const Signup = (props) => {
   const error = useSelector((state) => state.auth.errorMessage);
@@ -19,13 +19,14 @@ const Signup = (props) => {
 
   return (
     <div className="row no-gutters">
-      <div class="col-md-8">
+      <div className="col-md-8">
         <img
           className="img-fluid"
           src={process.env.PUBLIC_URL + '/images/teamwork.jpg'}
+          alt="background"
         />
       </div>
-      <div class="col-md-4">
+      <div className="col-md-4">
         <div className="h-100 d-flex justify-content-center align-items-center">
           <div className="container">
             <h2>
@@ -55,7 +56,7 @@ const Signup = (props) => {
                   {error ? <span className="text-danger">{error}</span> : ''}
                 </div>
                 <button
-                  className="btn btn-primary"
+                  className="btn btn-primary shadow rounded"
                   type="submit"
                   disabled={submitting}
                 >
