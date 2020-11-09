@@ -29,11 +29,13 @@ app.use(passport.session());
 // Routes
 require('./routes/authRoutes')(app);
 require('./routes/cloudinaryRoutes')(app);
+require('./routes/ticketRoutes')(app);
 
 // Connect Mongo Atlas
 mongoose.connect(keys.mongoURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+  useCreateIndex: true,
 });
 
 if (process.env.NODE_ENV === 'production') {

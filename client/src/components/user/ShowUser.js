@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import Card from '../utils/userCard/Card';
 import Loading from '../utils/Loading';
 
-const UserShow = () => {
+const ShowUser = () => {
   const user = useSelector((state) => state.auth.user);
 
   if (!user) {
@@ -16,4 +16,4 @@ const UserShow = () => {
   );
 };
 
-export default UserShow;
+export default ShowUser;

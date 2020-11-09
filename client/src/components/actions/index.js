@@ -1,5 +1,12 @@
 import axios from 'axios';
-import { AUTH_USER, AUTH_ERROR, EDIT_USER, FETCH_USER } from './types';
+import {
+  AUTH_USER,
+  AUTH_ERROR,
+  EDIT_USER,
+  FETCH_USER,
+  TICKETS,
+  TICKET_ERROR,
+} from './types';
 
 //////////////////////////////// Authentification //////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////
@@ -73,4 +80,17 @@ export const deleteUser = (id, callback) => async (dispatch) => {
 // Cloudinary Delete Image
 export const deleteImage = (image) => async () => {
   await axios.post(`/api/delete/image`, image);
+};
+
+////////////////////////////////////////// Tickets //////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+
+// fetch All Tickets
+export const getAllTickets = () => async (dispatch) => {
+  try {
+    const response = await axios.get('/api/tickets');
+    dispatch({ type: TICKETS, payload: response.data });
+  } catch (e) {
+    dispatch({ type: TICKET_ERROR, payload: 'No tickets found...' });
+  }
 };

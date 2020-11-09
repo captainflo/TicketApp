@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import Header from './utils/Header';
+import Footer from './utils/Footer';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { connect, useSelector } from 'react-redux';
 import * as actions from './actions';
@@ -8,8 +9,9 @@ import Signout from './auth/Signout';
 import Signin from './auth/Signin';
 import Signup from './auth/Signup';
 import Welcome from './pages/Welcome';
-import UserShow from './user/UserShow';
-import UserEdit from './user/UserEdit';
+import ShowUser from './user/ShowUser';
+import EditUser from './user/EditUser';
+import Tickets from './ticket/Tickets';
 
 const App = (props) => {
   const user = useSelector((state) => state.auth.user);
@@ -31,12 +33,14 @@ const App = (props) => {
         <Route path="/signup" component={Signup} />
         {authenticated ? (
           <div>
-            <Route exact path="/user/:id" component={UserShow} />
-            <Route exact path="/user/edit/:id" component={UserEdit} />
+            <Route exact path="/user/:id" component={ShowUser} />
+            <Route exact path="/user/edit/:id" component={EditUser} />
+            <Route exact path="/tickets" component={Tickets} />
           </div>
         ) : (
           ''
         )}
+        <Footer />
       </BrowserRouter>
     </div>
   );
