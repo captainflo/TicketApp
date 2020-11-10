@@ -18,6 +18,17 @@ const ticketSchema = new Schema({
   orderId: {
     type: String,
   },
+  date: {
+    type: Date,
+    required: true,
+  },
+  address: {
+    type: String,
+    required: true,
+  },
+  photo: {
+    type: String,
+  },
 });
 
 // Create the model class

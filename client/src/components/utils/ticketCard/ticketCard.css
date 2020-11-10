@@ -1,9 +1,14 @@
 .ticket-card-wrapper {
   display: flex;
   flex-flow: column wrap;
-  justify-content: space-around;
+  justify-content: space-between;
   padding: 20px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.head-wrapper {
+  display: flex;
+  justify-content: space-between;
 }
 
 .ticket-image-wrapper {
@@ -32,6 +37,12 @@
   margin-top: 2px;
 }
 
+.ticket-description-wrapper {
+  width: 300px;
+  overflow: hidden;
+  float: left;
+}
+
 .ticket-description-wrapper p {
   font-weight: 600;
   margin-bottom: 0px;
@@ -48,5 +59,9 @@
   .ticket-date-wrapper p {
     line-height: 1em;
     margin-top: 0px;
+  }
+
+  .ticket-date-wrapper {
+    margin-left: 10px;
   }
 }

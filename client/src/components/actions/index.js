@@ -5,6 +5,7 @@ import {
   EDIT_USER,
   FETCH_USER,
   TICKETS,
+  TICKET,
   TICKET_ERROR,
 } from './types';
 
@@ -92,5 +93,26 @@ export const getAllTickets = () => async (dispatch) => {
     dispatch({ type: TICKETS, payload: response.data });
   } catch (e) {
     dispatch({ type: TICKET_ERROR, payload: 'No tickets found...' });
+  }
+};
+
+// Create Ticket
+export const createTicket = (ticket, callback) => async (dispatch) => {
+  try {
+    const response = await axios.post('/api/ticket/new', ticket);
+    callback();
+  } catch (e) {
+    dispatch({ type: TICKET_ERROR, payload: 'can not create ticket' });
+  }
+};
+
+// fetch User
+export const fetchTicket = (id, callback) => async (dispatch) => {
+  try {
+    const response = await axios.post(`/api/ticket/${id}`);
+    dispatch({ type: TICKET, payload: response.data });
+    callback();
+  } catch (e) {
+    dispatch({ type: TICKET_ERROR, payload: 'can not create ticket' });
   }
 };

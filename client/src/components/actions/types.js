@@ -4,4 +4,5 @@ export const FETCH_USER = 'fetch_user';
 export const AUTH_ERROR = 'auth_error';
 
 export const TICKETS = 'tickets';
+export const TICKET = 'ticket';
 export const TICKET_ERROR = 'ticket_error';

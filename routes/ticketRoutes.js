@@ -7,6 +7,9 @@ module.exports = (app) => {
   // Fetch All Tickets
   app.get('/api/tickets', Ticket.fetchAllTickets);
 
+  // Fetch Ticket
+  app.get('/api/ticket/:id', Ticket.fetchTicket);
+
   // Delete Ticket
   app.delete('/api/ticket/:id', Ticket.deleteTicket);
 

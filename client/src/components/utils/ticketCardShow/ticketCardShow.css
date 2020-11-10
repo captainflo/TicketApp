@@ -1,0 +1,54 @@
+.ticket-show-wrapper {
+  margin-top: 20px;
+  border-radius: 30px;
+  background-color: #fff;
+  box-sizing: border-box;
+  box-shadow: 3px 4px 12px 0 rgba(0, 0, 0, 0.17);
+  cursor: pointer;
+  display: block;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 550px;
+  position: relative;
+}
+
+.ticket-show-wrapper h4 {
+  text-align: center;
+  margin: 10px 0 10px 0;
+}
+
+.ticket-show-wrapper p {
+  color: rgba(38, 38, 38, 0.65);
+}
+
+.ticket-show-img {
+  max-width: 100%;
+  height: auto;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+}
+
+.ticket-show-footer {
+  position: absolute;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  text-align: center;
+  width: 100%;
+  bottom: 0;
+  padding: 10px 10px;
+  background-color: rgba(0, 0, 0, 0.03);
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+@media only screen and (min-width: 1024px) {
+  .ticket-show-wrapper {
+    width: 25%;
+  }
+}
+
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation: portrait) {
+  .ticket-show-wrapper {
+    width: 40%;
+  }
+}

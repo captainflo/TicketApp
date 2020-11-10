@@ -1,24 +1,28 @@
 import './ticketCard.css';
+import moment from 'moment';
+import { Link } from 'react-router-dom';
 
-const TicketCard = ({ price, title }) => {
+const TicketCard = ({ price, title, address, photo, date, id }) => {
   return (
     <div className="ticket-card-wrapper ">
-      <div className="ticket-image-wrapper">
-        <img
-          src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/red-heart-with-headphones-on-blue-background-royalty-free-image-1575655505.jpg"
-          className="ticket-image"
-        />
+      <div className="head-wrapper">
+        <div className="ticket-image-wrapper">
+          <img src={photo} className="ticket-image" />
+        </div>
+        <div className="ticket-date-wrapper">
+          <p>{moment.utc(date).format('MMM D')}</p>
+        </div>
       </div>
-      <div className="ticket-date-wrapper">
-        <p>Nov 13-14 </p>
-      </div>
+
       <div className="ticket-description-wrapper">
         <p>{title}</p>
-        <span>Lauderdale Beach Park Ft. Lauderdale,</span>
+        <span>{address}</span>
       </div>
       <p>$ {price}</p>
       <div>
-        <button className="btn btn-primary">See Ticket</button>
+        <Link to={`/ticket/${id}`} className="btn btn-primary">
+          See Ticket
+        </Link>
       </div>
     </div>
   );
