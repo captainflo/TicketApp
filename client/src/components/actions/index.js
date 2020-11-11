@@ -106,13 +106,23 @@ export const createTicket = (ticket, callback) => async (dispatch) => {
   }
 };
 
-// fetch User
+// fetch Ticket
 export const fetchTicket = (id, callback) => async (dispatch) => {
   try {
-    const response = await axios.post(`/api/ticket/${id}`);
+    const response = await axios.get(`/api/ticket/${id}`);
     dispatch({ type: TICKET, payload: response.data });
     callback();
   } catch (e) {
     dispatch({ type: TICKET_ERROR, payload: 'can not create ticket' });
+  }
+};
+
+// edit Ticket
+export const editTicket = (id, value, callback) => async (dispatch) => {
+  try {
+    const response = await axios.post(`/api/ticket/${id}`, value);
+    callback();
+  } catch (e) {
+    dispatch({ type: TICKET_ERROR, payload: 'can edit ticket' });
   }
 };

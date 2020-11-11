@@ -57,6 +57,9 @@ const NewTicket = (props) => {
 
   return (
     <WrapperCard>
+      <h4>
+        Create Ticket <i className="fas fa-ticket-alt"></i>
+      </h4>
       <div className=" justify-content-center align-items-center">
         <div className="container">
           <form onSubmit={handleSubmit(onSubmit)}>

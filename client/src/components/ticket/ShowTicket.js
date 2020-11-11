@@ -7,7 +7,6 @@ import Loading from '../utils/Loading';
 const ShowTicket = (props) => {
   const [isLoading, setIsLoading] = useState(false);
   const ticket = useSelector((state) => state.ticket.showTicket);
-  console.log(ticket);
 
   useEffect(() => {
     setIsLoading(true);

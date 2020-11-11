@@ -6,7 +6,6 @@ import TicketCard from '../utils/ticketCard/TicketCard';
 
 const Tickets = (props) => {
   const tickets = useSelector((state) => state.ticket.tickets);
-
   useEffect(() => {
     props.getAllTickets();
   }, [props]);
