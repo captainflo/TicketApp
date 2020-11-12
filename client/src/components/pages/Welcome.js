@@ -1,5 +1,23 @@
+import Carousel from '../utils/carousel/Carousel';
+
 const Welcome = () => {
-  return <div>hello</div>;
+  const elements = [
+    {
+      text: 'We provides services for buyers and sellers of tickets',
+      photo: 'stadium.jpeg',
+      title: 'Get the best deal now!',
+    },
+    {
+      text: 'Buy it or sell it',
+      photo: 'connect.jpeg',
+      title: 'The platform of ticket',
+    },
+  ];
+  return (
+    <div>
+      <Carousel elements={elements} />
+    </div>
+  );
 };
 
 export default Welcome;

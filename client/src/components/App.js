@@ -15,6 +15,7 @@ import Tickets from './ticket/Tickets';
 import NewTicket from './ticket/NewTicket';
 import ShowTicket from './ticket/ShowTicket';
 import EditTicket from './ticket/EditTicket';
+import Orders from './order/Orders';
 
 const App = (props) => {
   const user = useSelector((state) => state.auth.user);
@@ -43,6 +44,7 @@ const App = (props) => {
               <Route exact path="/tickets/new" component={NewTicket} />
               <Route exact path="/ticket/:id" component={ShowTicket} />
               <Route exact path="/ticket/edit/:id" component={EditTicket} />
+              <Route exact path="/orders" component={Orders} />
             </div>
           ) : (
             ''

@@ -1,0 +1,17 @@
+.carousel-wrapper {
+  height: 400px;
+  position: relative;
+  color: #fff;
+  opacity: 0.9;
+}
+
+.carousel-wrapper h1 {
+  font-weight: lighter;
+}
+
+.carousel-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

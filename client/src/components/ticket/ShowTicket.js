@@ -8,6 +8,11 @@ const ShowTicket = (props) => {
   const [isLoading, setIsLoading] = useState(false);
   const ticket = useSelector((state) => state.ticket.showTicket);
 
+  const createOrder = (OrderValue) => {
+    props.createOrder(OrderValue, () => {
+      props.history.push(`/orders`);
+    });
+  };
   useEffect(() => {
     setIsLoading(true);
     props.fetchTicket(props.match.params.id, () => setIsLoading(false));
@@ -18,7 +23,7 @@ const ShowTicket = (props) => {
   }
   return (
     <div>
-      <TicketCardShow ticket={ticket} />
+      <TicketCardShow ticket={ticket} createOrder={createOrder} />
     </div>
   );
 };

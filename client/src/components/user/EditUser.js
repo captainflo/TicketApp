@@ -56,9 +56,9 @@ const EditUser = (props) => {
     <WrapperCard>
       <div className=" justify-content-center align-items-center">
         <div className="container">
-          <h2>
+          <h4>
             Edit User <i className="fas fa-user-edit"></i>
-          </h2>
+          </h4>
           <p>* Leave blank if doesn't want to change</p>
           <form onSubmit={handleSubmit(onSubmit)}>
             <Field

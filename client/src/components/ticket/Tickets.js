@@ -15,17 +15,7 @@ const Tickets = (props) => {
   }
 
   const displayTickets = tickets.map((ticket) => {
-    return (
-      <TicketCard
-        key={ticket._id}
-        id={ticket._id}
-        price={ticket.price}
-        title={ticket.title}
-        photo={ticket.photo}
-        address={ticket.address}
-        date={ticket.date}
-      />
-    );
+    return <TicketCard key={ticket._id} ticket={ticket} />;
   });
 
   return (

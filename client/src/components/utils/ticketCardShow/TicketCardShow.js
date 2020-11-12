@@ -3,7 +3,7 @@ import moment from 'moment';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-const TicketCardShow = ({ ticket }) => {
+const TicketCardShow = ({ ticket, createOrder }) => {
   const user = useSelector((state) => state.auth.user);
 
   return (
@@ -33,7 +33,14 @@ const TicketCardShow = ({ ticket }) => {
             </Link>
           </div>
         ) : (
-          <button className="btn btn-primary">Payment</button>
+          <button
+            onClick={() =>
+              createOrder({ valueForm: { ticket, userId: user._id } })
+            }
+            className="btn btn-primary"
+          >
+            Payment
+          </button>
         )}
       </div>
     </div>

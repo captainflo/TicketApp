@@ -11,7 +11,6 @@ import WrapperCard from '../utils/wrapperCard/WrapperCard';
 const EditTicket = (props) => {
   const id = props.match.params.id;
   const error = useSelector((state) => state.auth.errorMessage);
-  const user = useSelector((state) => state.auth.user);
 
   const [image, setImage] = useState('');
   const [publicId, setPublicId] = useState('');

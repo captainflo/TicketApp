@@ -18,14 +18,15 @@ const Signin = (props) => {
 
   return (
     <div className="row no-gutters">
-      <div className="col-md-8">
-        <img
-          className="img-fluid"
-          src={process.env.PUBLIC_URL + '/images/teamwork.jpg'}
-          alt="background"
-        />
+      <div className="col-md-7">
+        <div className="wrapper-auth-image">
+          <img
+            src={process.env.PUBLIC_URL + '/images/connect.jpeg'}
+            alt="background"
+          />
+        </div>
       </div>
-      <div className="col-md-4">
+      <div className="col-md-5">
         <div className="h-100 d-flex justify-content-center align-items-center">
           <div className="container">
             <h2>

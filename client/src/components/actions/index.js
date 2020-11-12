@@ -7,6 +7,8 @@ import {
   TICKETS,
   TICKET,
   TICKET_ERROR,
+  ORDERS,
+  ORDER_ERROR,
 } from './types';
 
 //////////////////////////////// Authentification //////////////////////////////////////////
@@ -99,7 +101,7 @@ export const getAllTickets = () => async (dispatch) => {
 // Create Ticket
 export const createTicket = (ticket, callback) => async (dispatch) => {
   try {
-    const response = await axios.post('/api/ticket/new', ticket);
+    await axios.post('/api/ticket/new', ticket);
     callback();
   } catch (e) {
     dispatch({ type: TICKET_ERROR, payload: 'can not create ticket' });
@@ -120,9 +122,33 @@ export const fetchTicket = (id, callback) => async (dispatch) => {
 // edit Ticket
 export const editTicket = (id, value, callback) => async (dispatch) => {
   try {
-    const response = await axios.post(`/api/ticket/${id}`, value);
+    await axios.post(`/api/ticket/${id}`, value);
     callback();
   } catch (e) {
     dispatch({ type: TICKET_ERROR, payload: 'can edit ticket' });
+  }
+};
+
+//////////////////////////////// Orders ///////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////
+
+// Create New Order
+export const createOrder = (value, callback) => async (dispatch) => {
+  try {
+    await axios.post(`/api/order/new`, value);
+    callback();
+  } catch (e) {
+    dispatch({ type: ORDER_ERROR, payload: 'can create order' });
+  }
+};
+
+// Fetch Order by userId
+export const fetchOrdersByUserId = (userId) => async (dispatch) => {
+  const id = { userId };
+  try {
+    const response = await axios.post('/api/orders', id);
+    dispatch({ type: ORDERS, payload: response.data });
+  } catch (e) {
+    dispatch({ type: ORDER_ERROR, payload: 'cannot find Order...' });
   }
 };
