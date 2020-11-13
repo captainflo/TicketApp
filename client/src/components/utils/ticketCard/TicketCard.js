@@ -7,7 +7,7 @@ const TicketCard = ({ ticket }) => {
     <div className="ticket-card-wrapper ">
       <div className="head-wrapper">
         <div className="ticket-image-wrapper">
-          <img src={ticket.photo} className="ticket-image" />
+          <img src={ticket.photo} className="ticket-image" alt="ticket" />
         </div>
         <div className="ticket-date-wrapper">
           <p>{moment.utc(ticket.date).format('MMM D')}</p>

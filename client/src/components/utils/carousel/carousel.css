@@ -7,11 +7,17 @@
 
 .carousel-wrapper h1 {
   font-weight: lighter;
+  font-size: 20px;
+}
+
+.carousel-wrapper h4 {
+  font-weight: lighter;
+  font-size: 15px;
 }
 
 .carousel-text {
   position: absolute;
-  top: 50%;
+  top: 20%;
   left: 50%;
   transform: translate(-50%, -50%);
 }

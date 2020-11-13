@@ -43,6 +43,9 @@ export const signin = (formProps, callback) => async (dispatch) => {
 export const signout = () => async (dispatch) => {
   localStorage.removeItem('token');
   dispatch({ type: AUTH_USER, payload: '' });
+  dispatch({ type: ORDERS, payload: '' });
+  dispatch({ type: TICKETS, payload: '' });
+  dispatch({ type: TICKET, payload: '' });
   dispatch({ type: FETCH_USER, payload: '' });
 };
 

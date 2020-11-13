@@ -20,15 +20,14 @@ const Carousel = ({ elements }) => {
     );
   });
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
-    speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    // autoplay: true,
-    // speed: 2000,
-    // autoplaySpeed: 3000,
-    // cssEase: 'linear',
+    autoplay: true,
+    speed: 2000,
+    autoplaySpeed: 3000,
+    cssEase: 'linear',
   };
 
   return <Slider {...settings}>{image}</Slider>;

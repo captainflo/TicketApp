@@ -2,10 +2,10 @@ import './ticketCardShow.css';
 import moment from 'moment';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import StripeCheckout from 'react-stripe-checkout';
 
 const TicketCardShow = ({ ticket, createOrder }) => {
   const user = useSelector((state) => state.auth.user);
-
   return (
     <div className="ticket-show-wrapper">
       <div className="ticket-show-wrapper-img">
@@ -33,14 +33,18 @@ const TicketCardShow = ({ ticket, createOrder }) => {
             </Link>
           </div>
         ) : (
-          <button
-            onClick={() =>
-              createOrder({ valueForm: { ticket, userId: user._id } })
+          <StripeCheckout
+            token={({ id }) =>
+              createOrder({
+                valueForm: { ticket, userId: user._id, token: id },
+              })
             }
-            className="btn btn-primary"
+            stripeKey={process.env.REACT_APP_STRIPE_KEY}
+            amount={ticket.price * 100}
+            name="Ticket App"
           >
-            Payment
-          </button>
+            <button className="btn btn-primary">Payment</button>
+          </StripeCheckout>
         )}
       </div>
     </div>
