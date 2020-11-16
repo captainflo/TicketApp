@@ -13,7 +13,6 @@ const Tickets = (props) => {
   if (!tickets) {
     return <Loading />;
   }
-
   const displayTickets = tickets.map((ticket) => {
     return <TicketCard key={ticket._id} ticket={ticket} />;
   });

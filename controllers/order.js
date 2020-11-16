@@ -5,7 +5,6 @@ const stripe = require('stripe')(keys.stripeSecretkey);
 
 // Create Order
 exports.createOrder = async function (req, res, next) {
-  console.log(req.body.valueForm);
   const { ticket, userId, token } = req.body.valueForm;
 
   const charge = await stripe.charges.create({
@@ -32,7 +31,6 @@ exports.createOrder = async function (req, res, next) {
 
 // Fetch Orders by UserId
 exports.fetchAllOrdersByUserId = async function (req, res, next) {
-  console.log(req.body.userId);
   const orders = await Order.find({ userId: req.body.userId }).populate(
     'ticket'
   );
