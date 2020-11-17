@@ -7,6 +7,7 @@ import { connect, useSelector } from 'react-redux';
 import Widget from '../utils/cloudinary/Widget';
 import validate from './form/validation';
 import WrapperCard from '../utils/wrapperCard/WrapperCard';
+import renderSelectField from './form/renderSelectField';
 
 const NewTicket = (props) => {
   const error = useSelector((state) => state.auth.errorMessage);
@@ -18,9 +19,11 @@ const NewTicket = (props) => {
   const { handleSubmit, submitting } = props;
 
   const onSubmit = (value) => {
+    console.log(value);
     const form = {
       title: value.title,
       price: value.price,
+      activities: value.activities,
       userId: user._id,
       date: value.date,
       address: value.address,
@@ -55,6 +58,12 @@ const NewTicket = (props) => {
     setImage('');
   };
 
+  const activities = [
+    { title: '' },
+    { title: 'Concerts' },
+    { title: 'Sports' },
+    { title: 'Arts & Theater' },
+  ];
   return (
     <WrapperCard>
       <h4>
@@ -75,6 +84,17 @@ const NewTicket = (props) => {
               component={renderField}
               label="Price"
             />
+            <Field
+              name="activities"
+              component={renderSelectField}
+              label="Activities"
+            >
+              {activities.map((option) => (
+                <option key={option.title} value={option.title}>
+                  {option.title}
+                </option>
+              ))}
+            </Field>
             <Field
               name="date"
               type="date"

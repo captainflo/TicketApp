@@ -26,6 +26,10 @@ const ticketSchema = new Schema({
     type: String,
     required: true,
   },
+  activities: {
+    type: String,
+    required: true,
+  },
   photo: {
     type: String,
   },

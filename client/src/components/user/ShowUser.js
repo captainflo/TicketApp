@@ -11,7 +11,7 @@ const ShowUser = (props) => {
 
   useEffect(() => {
     props.getAllTickets();
-  }, [props]);
+  }, [props.getAllTickets]);
 
   if (!user || !tickets) {
     return <Loading />;

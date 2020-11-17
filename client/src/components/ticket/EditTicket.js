@@ -5,8 +5,8 @@ import * as actions from '../actions';
 import { compose } from 'redux';
 import { connect, useSelector } from 'react-redux';
 import Widget from '../utils/cloudinary/Widget';
-// import validate from './form/validation';
 import WrapperCard from '../utils/wrapperCard/WrapperCard';
+import renderSelectField from './form/renderSelectField';
 
 const EditTicket = (props) => {
   const id = props.match.params.id;
@@ -46,6 +46,12 @@ const EditTicket = (props) => {
     props.deleteImage(imageDelete);
     setImage('');
   };
+  const activities = [
+    { title: '' },
+    { title: 'Concerts' },
+    { title: 'Sports' },
+    { title: 'Arts & Theater' },
+  ];
 
   return (
     <WrapperCard>
@@ -74,6 +80,17 @@ const EditTicket = (props) => {
               component={renderField}
               label="Date"
             />
+            <Field
+              name="activities"
+              component={renderSelectField}
+              label="Activities"
+            >
+              {activities.map((option) => (
+                <option key={option.title} value={option.title}>
+                  {option.title}
+                </option>
+              ))}
+            </Field>
             <Field
               name="address"
               type="text"

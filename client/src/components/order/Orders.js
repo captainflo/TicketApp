@@ -12,7 +12,7 @@ const Orders = (props) => {
     if (user) {
       props.fetchOrdersByUserId(user._id);
     }
-  }, [props, user]);
+  }, [props.fetchOrdersByUserId, user]);
 
   if (!orders) {
     return <Loading />;

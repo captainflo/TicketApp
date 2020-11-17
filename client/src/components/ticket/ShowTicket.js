@@ -16,7 +16,7 @@ const ShowTicket = (props) => {
   useEffect(() => {
     setIsLoading(true);
     props.fetchTicket(props.match.params.id, () => setIsLoading(false));
-  }, [props]);
+  }, [props.fetchTicket]);
 
   if (isLoading) {
     return <Loading />;

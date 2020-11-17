@@ -5,7 +5,7 @@ import * as actions from '../actions';
 const Signout = (props) => {
   useEffect(() => {
     props.signout();
-  }, [props]);
+  }, [props.signout]);
 
   return (
     <div className="jumbotron d-flex align-items-center">

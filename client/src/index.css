@@ -14,6 +14,12 @@ body {
   width: 100%;
 }
 
+/* search activities */
+.button-search {
+  margin-top: 24px;
+  margin-left: 5px;
+}
+
 @media only screen and (min-width: 1024px) {
   .wrapper-auth-image img {
     min-height: 100vh;
