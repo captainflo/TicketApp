@@ -33,7 +33,7 @@ const Tickets = (props) => {
 
   return (
     <div className="container-fluid">
-      <h4>List all tickets</h4>
+      <h4>List tickets</h4>
       <SearchActivities onSubmit={onSubmit} />
       <div className="row">
         {activities === 'All' ? (

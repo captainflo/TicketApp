@@ -6,7 +6,7 @@ import './carousel.css';
 const Carousel = ({ elements }) => {
   const image = elements.map((element) => {
     return (
-      <div className="carousel-wrapper">
+      <div key={element.title} className="carousel-wrapper">
         <img
           className="img-fluid"
           src={process.env.PUBLIC_URL + `/images/${element.photo}`}

@@ -4,7 +4,7 @@ const Welcome = () => {
   const elements = [
     {
       text: 'We provides services for buyers and sellers of tickets',
-      photo: 'stadium.jpeg',
+      photo: 'wicked.jpeg',
       title: 'Get the best deal now!',
     },
     {

@@ -1,5 +1,6 @@
 .carousel-wrapper {
   height: 400px;
+  overflow: hidden;
   position: relative;
   color: #fff;
   opacity: 0.9;
@@ -8,11 +9,15 @@
 .carousel-wrapper h1 {
   font-weight: lighter;
   font-size: 20px;
+  background-color: blueviolet;
+  padding: 10px;
 }
 
 .carousel-wrapper h4 {
   font-weight: lighter;
   font-size: 15px;
+  background-color: blueviolet;
+  padding: 10px;
 }
 
 .carousel-text {
@@ -20,4 +25,16 @@
   top: 20%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+@media only screen and (min-width: 1024px) {
+  .carousel-wrapper h1 {
+    font-size: 40px;
+  }
+  .carousel-wrapper h4 {
+    font-size: 25px;
+  }
+}
+
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation: portrait) {
 }

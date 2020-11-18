@@ -19,7 +19,6 @@ const NewTicket = (props) => {
   const { handleSubmit, submitting } = props;
 
   const onSubmit = (value) => {
-    console.log(value);
     const form = {
       title: value.title,
       price: value.price,
