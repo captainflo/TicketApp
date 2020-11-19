@@ -24,7 +24,9 @@ const Header = ({ currentUser }) => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
       <Link to={'/'}>
-        <span className="navbar-brand">Logo</span>
+        <span className="navbar-brand">
+          TicketApp <i className="fas fa-ticket-alt"></i>
+        </span>
       </Link>
       <button
         className="navbar-toggler"

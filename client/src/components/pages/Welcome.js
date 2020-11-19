@@ -1,21 +1,30 @@
 import Carousel from '../utils/carousel/Carousel';
+import Concept from '../utils/concept/Concept';
+import Marketing from '../utils/concept/marketing';
 
 const Welcome = () => {
   const elements = [
     {
-      text: 'We provides services for buyers and sellers of tickets',
-      photo: 'wicked.jpeg',
-      title: 'Get the best deal now!',
+      text: 'NOTHING BEATS NFL FOOTBALL',
+      photo: 'dolphin.jpeg',
+      title: 'GET READY FOR GAME TIME.',
     },
     {
-      text: 'Buy it or sell it',
-      photo: 'connect.jpeg',
-      title: 'The platform of ticket',
+      text: 'BUY TICKETS NOW!',
+      photo: 'orchestra.jpg',
+      title: 'THE LARGEST TICKET MARKETPLACE',
+    },
+    {
+      text: 'CHECK YOUR ACCOUNT',
+      photo: 'girl.jpeg',
+      title: 'PLANS CHANGED? SELL YOUR TICKETS NOW',
     },
   ];
   return (
     <div>
       <Carousel elements={elements} />
+      <Concept />
+      <Marketing />
     </div>
   );
 };

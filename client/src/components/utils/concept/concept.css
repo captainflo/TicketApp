@@ -1,0 +1,17 @@
+.concept-wrapper {
+  padding: 60px;
+  margin-top: -7px;
+  background-color: #f4f4f4;
+}
+
+.concept-wrapper h4 {
+  margin-bottom: 20px;
+}
+
+.concept-wrapper p {
+  margin-top: 20px;
+  font-size: 20px;
+  line-height: 1.5;
+  letter-spacing: 0;
+  color: #4a4a4a;
+}

@@ -18,7 +18,7 @@ const Footer = () => {
         </Link>
       </div>
       <div className="footer-copyright">
-        This footer is made with <i className="fas fa-heart"></i> at Le Wagon
+        This website is made with <i className="fas fa-heart"></i>
       </div>
     </div>
   );
