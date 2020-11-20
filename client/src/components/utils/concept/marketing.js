@@ -7,7 +7,7 @@ const Marketing = () => {
           <div className="block-text-marketing">
             <div>
               <h4>Reserve your ticket</h4>
-              <p>Buy and sell with confidence at TicketApp</p>
+              <p>Buy or sell with confidence at TicketApp</p>
             </div>
           </div>
         </div>

@@ -21,7 +21,7 @@ const Signin = (props) => {
       <div className="col-md-7">
         <div className="wrapper-auth-image">
           <img
-            src={process.env.PUBLIC_URL + '/images/connect.jpeg'}
+            src={process.env.PUBLIC_URL + '/images/teamwork.jpg'}
             alt="background"
           />
         </div>

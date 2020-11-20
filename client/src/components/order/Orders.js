@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect, useSelector } from 'react-redux';
 import * as actions from '../actions';
+import Carousel from '../utils/carousel/Carousel';
 import Loading from '../utils/Loading';
 import TicketCard from '../utils/ticketCard/TicketCard';
 
@@ -14,10 +15,21 @@ const Orders = (props) => {
     }
   }, [props.fetchOrdersByUserId, user]);
 
+  const elements = [
+    {
+      text: 'Check your list',
+      photo: 'order.jpeg',
+      title: 'Be prepare for the next step',
+    },
+  ];
   if (!orders) {
     return <Loading />;
   } else if (orders.length === 0) {
-    return <div>No Orders</div>;
+    return (
+      <div>
+        <Carousel elements={elements} /> No Orders
+      </div>
+    );
   }
 
   console.log(orders);
@@ -26,10 +38,13 @@ const Orders = (props) => {
   });
 
   return (
-    <div className="container-fluid">
-      <h4>List all Orders</h4>
-      <div className="row">
-        <div className="col-md-8">{displayOrders}</div>
+    <div>
+      <Carousel elements={elements} />
+      <div className="container-fluid">
+        <h4 className="my-4 ">List all Orders</h4>
+        <div className="row">
+          <div className="col-md-8">{displayOrders}</div>
+        </div>
       </div>
     </div>
   );
