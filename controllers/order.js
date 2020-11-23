@@ -2,20 +2,25 @@ const Order = require('../models/Order');
 const Ticket = require('../models/Ticket');
 const keys = require('../config/keys');
 const stripe = require('stripe')(keys.stripeSecretkey);
+const sgMail = require('@sendgrid/mail');
+const templateEmail = require('../services/templateEmail');
 
 // Create Order
 exports.createOrder = async function (req, res, next) {
-  const { ticket, userId, token } = req.body.valueForm;
+  console.log(req.body);
+  const { ticket, user, token } = req.body.valueForm;
 
+  // Stripe Payment
   const charge = await stripe.charges.create({
     currency: 'usd',
     description: 'Ticket App',
     amount: ticket.price * 100,
     source: token,
   });
+
   if (charge) {
     const order = new Order({
-      userId: userId,
+      userId: user._id,
       ticket: ticket._id,
     });
 
@@ -24,6 +29,25 @@ exports.createOrder = async function (req, res, next) {
       const ticketUpdated = await Ticket.findById(ticket._id);
       ticketUpdated.set({ orderId: order._id });
       await ticketUpdated.save();
+
+      // Send Email
+      sgMail.setApiKey(keys.sendGrid);
+      let msg = {
+        to: `${user.email}`,
+        from: 'flahitte@outlook.com',
+        subject: `${user.firstName} your E-Ticket from TicketApp`,
+        html: templateEmail(req.body.valueForm),
+      };
+      try {
+        await sgMail.send(msg);
+      } catch (error) {
+        console.error(error);
+
+        if (error.response) {
+          console.error(error.response.body);
+        }
+      }
+
       res.status(201).send(order);
     });
   }

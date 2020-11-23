@@ -45,6 +45,7 @@
 
 .ticket-description-wrapper p {
   font-weight: 600;
+  margin-top: 5px;
   margin-bottom: 0px;
 }
 .ticket-description-wrapper span {
@@ -67,5 +68,9 @@
 
   .ticket-date-wrapper {
     margin-left: 10px;
+  }
+
+  .ticket-description-wrapper p {
+    margin-top: 0px;
   }
 }

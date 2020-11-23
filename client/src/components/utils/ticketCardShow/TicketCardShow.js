@@ -36,7 +36,7 @@ const TicketCardShow = ({ ticket, createOrder }) => {
           <StripeCheckout
             token={({ id }) =>
               createOrder({
-                valueForm: { ticket, userId: user._id, token: id },
+                valueForm: { ticket, user, token: id },
               })
             }
             stripeKey={process.env.REACT_APP_STRIPE_KEY}

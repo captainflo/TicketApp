@@ -26,8 +26,8 @@ const TicketCard = ({ ticket }) => {
           </Link>
         </div>
       ) : (
-        <div>
-          <button className="btn btn-danger">No more Place</button>
+        <div className="ticket-button">
+          <button className="btn btn-danger">Sold Out</button>
         </div>
       )}
     </div>

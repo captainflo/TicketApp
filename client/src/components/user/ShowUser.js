@@ -40,12 +40,16 @@ const ShowUser = (props) => {
           <Card user={user} />
         </div>
         <div className="col-md-7 col-sm-12">
-          <h2>All Your tickets</h2>
-          {displayTickets}
-          <h2>
-            Total Sell{' '}
-            <span className="float-right">${displayPriceTicket(tickets)}</span>
-          </h2>
+          <div className="wrapper-all-ticket">
+            <h2>All Your tickets</h2>
+            {displayTickets}
+            <h2>
+              Total Sell{' '}
+              <span className="float-right">
+                ${displayPriceTicket(tickets)}
+              </span>
+            </h2>
+          </div>
         </div>
       </div>
     </div>
