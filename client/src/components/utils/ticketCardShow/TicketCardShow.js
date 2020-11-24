@@ -14,9 +14,18 @@ const TicketCardShow = ({ ticket, createOrder }) => {
       <div className="ticket-show-body"></div>
       <div className="card-body">
         <h4>{ticket.title}</h4>
+        <div className="d-flex align-items-start">
+          <p>
+            <i className="far fa-calendar-alt"></i>{' '}
+            {moment.utc(ticket.date).format('MMMM D')}
+          </p>
+          <p className="time">
+            <i className="far fa-clock"></i>{' '}
+            {moment(ticket.time, 'HH:mm').format('hh:mm a')}
+          </p>
+        </div>
         <p>
-          <i className="far fa-calendar-alt"></i>{' '}
-          {moment.utc(ticket.date).format('MMMM D')}
+          <i className="fas fa-chair"></i> {ticket.seat}
         </p>
         <p>
           <i className="fas fa-map-pin"></i> {ticket.address}

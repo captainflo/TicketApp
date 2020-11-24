@@ -2,13 +2,25 @@ const Ticket = require('../models/Ticket');
 
 // Create Ticket
 exports.createTicket = async function (req, res, next) {
-  const { title, price, userId, date, address, photo, activities } = req.body;
+  const {
+    title,
+    price,
+    userId,
+    date,
+    address,
+    photo,
+    activities,
+    time,
+    seat,
+  } = req.body;
 
   const ticket = new Ticket({
     title: title,
     price: price,
     userId: userId,
     date: date,
+    time: time,
+    seat: seat,
     activities: activities,
     address: address,
     photo:

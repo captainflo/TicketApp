@@ -22,6 +22,14 @@ const ticketSchema = new Schema({
     type: Date,
     required: true,
   },
+  time: {
+    type: String,
+    required: true,
+  },
+  seat: {
+    type: String,
+    required: true,
+  },
   address: {
     type: String,
     required: true,

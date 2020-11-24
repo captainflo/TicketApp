@@ -11,6 +11,14 @@ const validate = (values) => {
     errors.date = 'must be equal or higher than today';
   }
 
+  if (!values.time) {
+    errors.time = 'Required';
+  }
+
+  if (!values.seat) {
+    errors.seat = 'Required';
+  }
+
   if (!values.activities) {
     errors.activities = 'Required';
   }

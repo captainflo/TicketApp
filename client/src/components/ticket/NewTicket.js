@@ -23,9 +23,11 @@ const NewTicket = (props) => {
     const form = {
       title: value.title,
       price: value.price,
+      seat: value.seat,
       activities: value.activities,
       userId: user._id,
       date: value.date,
+      time: value.time,
       address: value.address,
       photo: image,
     };
@@ -95,6 +97,12 @@ const NewTicket = (props) => {
                 label="Price"
               />
               <Field
+                name="seat"
+                type="text"
+                component={renderField}
+                label="Seat"
+              />
+              <Field
                 name="activities"
                 component={renderSelectField}
                 label="Activities"
@@ -105,12 +113,21 @@ const NewTicket = (props) => {
                   </option>
                 ))}
               </Field>
-              <Field
-                name="date"
-                type="date"
-                component={renderField}
-                label="Date"
-              />
+
+              <div className="d-flex align-items-start">
+                <Field
+                  name="date"
+                  type="date"
+                  component={renderField}
+                  label="Date"
+                />
+                <Field
+                  name="time"
+                  type="time"
+                  component={renderField}
+                  label="Hours"
+                />
+              </div>
               <Field
                 name="address"
                 type="text"

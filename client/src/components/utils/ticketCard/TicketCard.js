@@ -11,6 +11,7 @@ const TicketCard = ({ ticket }) => {
         </div>
         <div className="ticket-date-wrapper">
           <p>{moment.utc(ticket.date).format('MMM D')}</p>
+          <p>{moment(ticket.time, 'HH:mm').format('hh:mm a')}</p>
         </div>
       </div>
 
@@ -27,7 +28,7 @@ const TicketCard = ({ ticket }) => {
         </div>
       ) : (
         <div className="ticket-button">
-          <button className="btn btn-danger">Sold Out</button>
+          <p className="text-danger">Sold Out</p>
         </div>
       )}
     </div>

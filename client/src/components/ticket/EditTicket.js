@@ -75,11 +75,25 @@ const EditTicket = (props) => {
               label="Price"
             />
             <Field
-              name="date"
-              type="date"
+              name="seat"
+              type="text"
               component={renderField}
-              label="Date"
+              label="Seat"
             />
+            <div className="d-flex align-items-start">
+              <Field
+                name="date"
+                type="date"
+                component={renderField}
+                label="Date"
+              />
+              <Field
+                name="time"
+                type="time"
+                component={renderField}
+                label="Hours"
+              />
+            </div>
             <Field
               name="activities"
               component={renderSelectField}

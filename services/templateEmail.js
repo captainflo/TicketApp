@@ -3,6 +3,7 @@ const moment = require('moment');
 module.exports = (body) => {
   const { ticket, user, token } = body;
   const date = moment(ticket.date).format('LL');
+  const time = moment(ticket.time, 'HH:mm').format('hh:mm a');
   return `
   <html xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:v="urn:schemas-microsoft-com:vml">
   <head>
@@ -99,6 +100,9 @@ module.exports = (body) => {
     </style>
   </head>
   <body class="clean-body" style="margin: 0; padding: 0; -webkit-text-size-adjust: 100%; background-color: #FFFFFF;">
+    <div style="width: 100%; height: 200px; overflow: hidden;">
+      <image style="width: 100%; height: auto ;display: block; margin-left: auto; margin-right: auto" src='https://res.cloudinary.com/dwtc6zep7/image/upload/v1606233029/rsz_1fireworks_z3razq.jpg' title="Image"></image>
+    </div>
     <!--[if IE]><div class="ie-browser"><![endif]-->
     <table bgcolor="#FFFFFF" cellpadding="0" cellspacing="0" class="nl-container" role="presentation" style="table-layout: fixed; vertical-align: top; min-width: 320px; Margin: 0 auto; border-spacing: 0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #FFFFFF; width: 100%;" valign="top" width="100%">
       <tbody>
@@ -126,9 +130,16 @@ module.exports = (body) => {
                    
                           </div>
                         </div>
-                        <p>Ticket Name: ${ticket.title}</p>
-                        <p>Date: ${date}</p>
-                        <p>Location: ${ticket.address}</p>
+                        <div style="display:flex; justify-content: space-between;">
+                          <p style="font-size: 18px;">Ticket: <span style="color: #555555">${ticket.title}</span></p>
+                          <p  style="font-size: 18px;">Seat: <span style="color: #555555">${ticket.seat}</span></p>
+                        </div>
+                        <div style="display:flex; justify-content: space-between;">
+                          <p style="font-size: 18px;">Date: <span style="color: #555555">${date}</span></p>
+                          <p  style="font-size: 18px;">Time: <span style="color: #555555">${time}</span></p>
+                        </div>
+                        
+                        <p style="font-size: 18px;">Location: <span style="color: #555555">${ticket.address}</span></p>
                         <div>
                           <image style="display: block; margin-left: auto; margin-right: auto" src='https://res.cloudinary.com/dwtc6zep7/image/upload/v1606161772/code_q2m7y9.jpg' title="Image" width="200"></image>
                         </div>
