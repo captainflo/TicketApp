@@ -19,7 +19,7 @@ const Orders = (props) => {
     {
       text: 'Check your list',
       photo: 'order.jpeg',
-      title: 'Be prepare for the next step',
+      title: 'Be prepared for the next step',
     },
   ];
   if (!orders) {
@@ -31,8 +31,6 @@ const Orders = (props) => {
       </div>
     );
   }
-
-  console.log(orders);
   const displayOrders = orders.map((order) => {
     return <TicketCard key={order.ticket._id} ticket={order.ticket} />;
   });

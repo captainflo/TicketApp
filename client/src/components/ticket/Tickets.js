@@ -18,7 +18,11 @@ const Tickets = (props) => {
   if (!tickets) {
     return <Loading />;
   }
-  const displayTickets = tickets.map((ticket) => {
+  const displayTickets = _.orderBy(
+    tickets,
+    ['date', 'time'],
+    ['asc', 'asc']
+  ).map((ticket) => {
     return <TicketCard key={ticket._id} ticket={ticket} />;
   });
 

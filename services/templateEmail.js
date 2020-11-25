@@ -2,7 +2,7 @@ const moment = require('moment');
 
 module.exports = (body) => {
   const { ticket, user, token } = body;
-  const date = moment(ticket.date).format('LL');
+  const date = moment.utc(ticket.date).format('LL');
   const time = moment(ticket.time, 'HH:mm').format('hh:mm a');
   return `
   <html xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:v="urn:schemas-microsoft-com:vml">
