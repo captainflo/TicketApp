@@ -1,5 +1,6 @@
 import { Field, reduxForm } from 'redux-form';
 import renderSelectField from '../form/renderSelectField';
+import renderField from '../form/renderField';
 
 const SearchActivities = (props) => {
   const { handleSubmit, submitting, onSubmit } = props;
@@ -20,6 +21,7 @@ const SearchActivities = (props) => {
             </option>
           ))}
         </Field>
+        <Field name="date" type="date" component={renderField} label="Date" />
         <div className="button-search">
           <button
             className="btn btn-primary shadow rounded"

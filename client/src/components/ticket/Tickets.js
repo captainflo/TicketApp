@@ -5,11 +5,14 @@ import Carousel from '../utils/carousel/Carousel';
 import Loading from '../utils/Loading';
 import TicketCard from '../utils/ticketCard/TicketCard';
 import SearchActivities from './search/SearchActivities';
+import moment from 'moment';
+
 const _ = require('lodash');
 
 const Tickets = (props) => {
   const tickets = useSelector((state) => state.ticket.tickets);
   const [activities, setActivities] = useState('All');
+  const [date, setdate] = useState('');
 
   useEffect(() => {
     props.getAllTickets();
@@ -27,13 +30,16 @@ const Tickets = (props) => {
   });
 
   const displayActivities = _.filter(tickets, {
-    activities: activities,
+    // activities: activities,
+    date: date,
   }).map((ticket) => {
     return <TicketCard key={ticket._id} ticket={ticket} />;
   });
 
   const onSubmit = (value) => {
     setActivities(value.activities);
+    setdate(moment.utc(value.date).format('MMM D'));
+    console.log(value);
   };
 
   const elements = [
