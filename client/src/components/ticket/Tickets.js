@@ -1,3 +1,4 @@
+import { now } from 'lodash';
 import React, { useEffect, useState } from 'react';
 import { connect, useSelector } from 'react-redux';
 import * as actions from '../actions';
@@ -12,7 +13,6 @@ const _ = require('lodash');
 const Tickets = (props) => {
   const tickets = useSelector((state) => state.ticket.tickets);
   const [activities, setActivities] = useState('All');
-  const [date, setdate] = useState('');
 
   useEffect(() => {
     props.getAllTickets();
@@ -21,25 +21,22 @@ const Tickets = (props) => {
   if (!tickets) {
     return <Loading />;
   }
-  const displayTickets = _.orderBy(
-    tickets,
-    ['date', 'time'],
-    ['asc', 'asc']
-  ).map((ticket) => {
-    return <TicketCard key={ticket._id} ticket={ticket} />;
-  });
+  const displayTickets = _.orderBy(tickets, ['date', 'time'], ['asc', 'asc'])
+    .filter((ticket) => !ticket.orderId)
+    .map((ticket) => {
+      return <TicketCard key={ticket._id} ticket={ticket} />;
+    });
 
   const displayActivities = _.filter(tickets, {
-    // activities: activities,
-    date: date,
-  }).map((ticket) => {
-    return <TicketCard key={ticket._id} ticket={ticket} />;
-  });
+    activities: activities,
+  })
+    .filter((ticket) => !ticket.orderId)
+    .map((ticket) => {
+      return <TicketCard key={ticket._id} ticket={ticket} />;
+    });
 
   const onSubmit = (value) => {
     setActivities(value.activities);
-    setdate(moment.utc(value.date).format('MMM D'));
-    console.log(value);
   };
 
   const elements = [
@@ -49,7 +46,6 @@ const Tickets = (props) => {
       title: 'Life Happens Fast,',
     },
   ];
-
   return (
     <div>
       <Carousel elements={elements} />
