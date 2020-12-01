@@ -9,7 +9,9 @@ const ShowTicket = (props) => {
   const ticket = useSelector((state) => state.ticket.showTicket);
 
   const createOrder = (OrderValue) => {
+    setIsLoading(true);
     props.createOrder(OrderValue, () => {
+      setIsLoading(false);
       props.history.push(`/orders`);
     });
   };
