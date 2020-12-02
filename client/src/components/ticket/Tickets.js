@@ -1,4 +1,3 @@
-import { now } from 'lodash';
 import React, { useEffect, useState } from 'react';
 import { connect, useSelector } from 'react-redux';
 import * as actions from '../actions';
@@ -6,7 +5,6 @@ import Carousel from '../utils/carousel/Carousel';
 import Loading from '../utils/Loading';
 import TicketCard from '../utils/ticketCard/TicketCard';
 import SearchActivities from './search/SearchActivities';
-import moment from 'moment';
 
 const _ = require('lodash');
 
@@ -16,11 +14,12 @@ const Tickets = (props) => {
 
   useEffect(() => {
     props.getAllTickets();
-  }, [props.getAllTickets]);
+  }, [props, props.getAllTickets]);
 
   if (!tickets) {
     return <Loading />;
   }
+
   const displayTickets = _.orderBy(tickets, ['date', 'time'], ['asc', 'asc'])
     .filter((ticket) => !ticket.orderId)
     .map((ticket) => {
@@ -50,13 +49,20 @@ const Tickets = (props) => {
     <div>
       <Carousel elements={elements} />
       <div className="container-fluid">
-        <h4 className="my-4 ">Tickets List</h4>
         <SearchActivities onSubmit={onSubmit} />
         <div className="row">
           {activities === 'All' ? (
-            <div className="col-md-8">{displayTickets}</div>
+            <div className="col-md-8">
+              <h4 className="my-4 ">We Found {displayTickets.length} events</h4>
+              {displayTickets}
+            </div>
           ) : (
-            <div className="col-md-8">{displayActivities}</div>
+            <div className="col-md-8">
+              <h4 className="my-4 ">
+                We Found {displayActivities.length} events
+              </h4>
+              {displayActivities}
+            </div>
           )}
         </div>
       </div>
