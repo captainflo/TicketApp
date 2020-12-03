@@ -14,7 +14,7 @@ const SearchActivities = (props) => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="d-flex align-items-start">
+      <div className="d-flex flex-wrap align-items-start">
         <Field name="activities" component={renderSelectField}>
           {activities.map((option) => (
             <option key={option.title} value={option.title}>
