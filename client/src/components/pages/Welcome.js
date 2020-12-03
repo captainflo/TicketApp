@@ -23,14 +23,15 @@ const Welcome = () => {
   ];
 
   const partner = [
-    { photo: 'miami.jpeg' },
-    { photo: 'arsht.png' },
+    { photo: 'baseball.png' },
+    { photo: 'miami.png' },
     { photo: 'dolphin-logo.png' },
-    { photo: 'baseball.jpg' },
     { photo: 'Miami-Heat-logo.png' },
-    { photo: 'inter.jpeg' },
+    { photo: 'zoo-Miami-Logo.png' },
+
+    { photo: 'inter.png' },
     { photo: 'symphony.png' },
-    { photo: 'aquarium-Logo.jpeg' },
+    { photo: 'arsht.png' },
   ];
   return (
     <div>
