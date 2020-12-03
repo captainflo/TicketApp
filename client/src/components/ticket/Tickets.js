@@ -5,7 +5,6 @@ import Carousel from '../utils/carousel/Carousel';
 import Loading from '../utils/Loading';
 import TicketCard from '../utils/ticketCard/TicketCard';
 import SearchActivities from './search/SearchActivities';
-
 const _ = require('lodash');
 
 const Tickets = (props) => {
@@ -19,7 +18,6 @@ const Tickets = (props) => {
   if (!tickets) {
     return <Loading />;
   }
-
   const displayTickets = _.orderBy(tickets, ['date', 'time'], ['asc', 'asc'])
     .filter((ticket) => !ticket.orderId)
     .map((ticket) => {

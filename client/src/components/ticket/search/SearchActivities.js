@@ -20,6 +20,7 @@ const SearchActivities = (props) => {
             </option>
           ))}
         </Field>
+
         <div className="button-search">
           <button
             className="btn btn-primary shadow rounded"
