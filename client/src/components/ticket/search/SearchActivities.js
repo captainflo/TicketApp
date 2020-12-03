@@ -1,5 +1,7 @@
 import { Field, reduxForm } from 'redux-form';
 import renderSelectField from '../form/renderSelectField';
+import renderField from '../form/renderField';
+import validate from '../search/validation';
 
 const SearchActivities = (props) => {
   const { handleSubmit, submitting, onSubmit } = props;
@@ -20,6 +22,12 @@ const SearchActivities = (props) => {
             </option>
           ))}
         </Field>
+        <div>
+          <Field name="date" type="date" component={renderField} />
+          <span className="label-date">
+            Ticket availaible during or after this date
+          </span>
+        </div>
 
         <div className="button-search">
           <button
@@ -35,4 +43,8 @@ const SearchActivities = (props) => {
   );
 };
 
-export default reduxForm({ form: 'SearchActivitiesForm' })(SearchActivities);
+export default reduxForm({
+  form: 'SearchActivitiesForm',
+  validate,
+  initialValues: { activities: 'All' },
+})(SearchActivities);

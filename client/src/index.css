@@ -28,6 +28,13 @@ a:hover {
   width: 100%;
 }
 
+/* label-date */
+.label-date {
+  font-size: 12px;
+  display: block;
+  margin-top: -15px;
+}
+
 /*  */
 .wrapper-all-ticket {
   margin-top: 40px;

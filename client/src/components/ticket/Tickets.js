@@ -5,11 +5,14 @@ import Carousel from '../utils/carousel/Carousel';
 import Loading from '../utils/Loading';
 import TicketCard from '../utils/ticketCard/TicketCard';
 import SearchActivities from './search/SearchActivities';
+import moment from 'moment';
+
 const _ = require('lodash');
 
 const Tickets = (props) => {
   const tickets = useSelector((state) => state.ticket.tickets);
   const [activities, setActivities] = useState('All');
+  const [dateSelected, setDateSelected] = useState(moment.utc());
 
   useEffect(() => {
     props.getAllTickets();
@@ -18,22 +21,33 @@ const Tickets = (props) => {
   if (!tickets) {
     return <Loading />;
   }
+
   const displayTickets = _.orderBy(tickets, ['date', 'time'], ['asc', 'asc'])
-    .filter((ticket) => !ticket.orderId)
+    .filter(
+      (ticket) =>
+        !ticket.orderId &&
+        moment.utc(ticket.date).format('YYYY-DD-MM') >=
+          moment.utc(dateSelected).format('YYYY-DD-MM')
+    )
     .map((ticket) => {
       return <TicketCard key={ticket._id} ticket={ticket} />;
     });
 
-  const displayActivities = _.filter(tickets, {
-    activities: activities,
-  })
-    .filter((ticket) => !ticket.orderId)
+  const displayActivities = _.orderBy(tickets, ['date', 'time'], ['asc', 'asc'])
+    .filter(
+      (ticket) =>
+        !ticket.orderId &&
+        ticket.activities === activities &&
+        moment.utc(ticket.date).format('YYYY-DD-MM') >=
+          moment.utc(dateSelected).format('YYYY-DD-MM')
+    )
     .map((ticket) => {
       return <TicketCard key={ticket._id} ticket={ticket} />;
     });
 
   const onSubmit = (value) => {
     setActivities(value.activities);
+    setDateSelected(value.date);
   };
 
   const elements = [
