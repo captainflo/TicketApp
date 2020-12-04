@@ -15,6 +15,7 @@ const Marketing = () => {
           <img
             className="img-fluid"
             src={process.env.PUBLIC_URL + `/images/mockup.png`}
+            alt="marketing"
           />
         </div>
       </div>

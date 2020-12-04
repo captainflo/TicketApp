@@ -12,7 +12,9 @@ const _ = require('lodash');
 const Tickets = (props) => {
   const tickets = useSelector((state) => state.ticket.tickets);
   const [activities, setActivities] = useState('All');
-  const [dateSelected, setDateSelected] = useState(moment.utc());
+  const [dateSelected, setDateSelected] = useState(
+    moment().format('YYYY-MM-DD')
+  );
 
   useEffect(() => {
     props.getAllTickets();

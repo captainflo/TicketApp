@@ -2,6 +2,7 @@ import { Field, reduxForm } from 'redux-form';
 import renderSelectField from '../form/renderSelectField';
 import renderField from '../form/renderField';
 import validate from '../search/validation';
+import moment from 'moment';
 
 const SearchActivities = (props) => {
   const { handleSubmit, submitting, onSubmit } = props;
@@ -25,7 +26,7 @@ const SearchActivities = (props) => {
         <div>
           <Field name="date" type="date" component={renderField} />
           <span className="label-date">
-            Ticket availaible during or after this date
+            Tickets availaible on or after this date
           </span>
         </div>
 
@@ -46,5 +47,5 @@ const SearchActivities = (props) => {
 export default reduxForm({
   form: 'SearchActivitiesForm',
   validate,
-  initialValues: { activities: 'All' },
+  initialValues: { activities: 'All', date: moment().format('YYYY-MM-DD') },
 })(SearchActivities);

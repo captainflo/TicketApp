@@ -1,13 +1,12 @@
 import moment from 'moment';
 const validate = (values) => {
-  let timeNow = new Date().toISOString().split('T')[0];
-  const today = moment(timeNow).toDate().getTime();
+  let timeNow = moment().format('YYYY-DD-MM');
 
   const errors = {};
 
   if (!values.date) {
     errors.date = 'Required';
-  } else if (moment(values.date).toDate().getTime() < today) {
+  } else if (moment.utc(values.date).format('YYYY-DD-MM') < timeNow) {
     errors.date = 'must be equal or higher than today';
   }
 
