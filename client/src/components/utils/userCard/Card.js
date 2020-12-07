@@ -12,7 +12,9 @@ const Card = ({ user }) => {
         <p>{user.lastName}</p>
         <p>{user.email}</p>
         <Link to={`/user/edit/${user._id}`}>
-          <button className="btn btn-primary float-right">Edit Profile</button>
+          <button className="btn btn-primary float-right btn-website">
+            Edit Profile
+          </button>
         </Link>
       </div>
     </div>

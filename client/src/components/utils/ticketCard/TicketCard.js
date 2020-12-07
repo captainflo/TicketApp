@@ -22,7 +22,10 @@ const TicketCard = ({ ticket }) => {
       <p>$ {ticket.price}</p>
       {!ticket.orderId ? (
         <div className="ticket-button">
-          <Link to={`/ticket/${ticket._id}`} className="btn btn-primary">
+          <Link
+            to={`/ticket/${ticket._id}`}
+            className="btn btn-primary btn-website"
+          >
             See Ticket
           </Link>
         </div>

@@ -50,7 +50,7 @@ const Signin = (props) => {
                   {error ? <span className="text-danger">{error}</span> : ''}
                 </div>
                 <button
-                  className="btn btn-primary shadow rounded"
+                  className="btn btn-primary shadow rounded btn-website"
                   type="submit"
                   disabled={submitting}
                 >

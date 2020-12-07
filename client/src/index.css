@@ -6,14 +6,37 @@ h4,
 h2 {
   font-weight: 400;
 }
+/* Button */
+.btn-website {
+  background: #ee9ca7 !important;
+  border-color: #ee9ca7 !important;
+  color: #fff;
+}
+
+.btn-website:hover {
+  opacity: 0.9;
+}
 
 /* navbar */
+nav {
+  background: #ee9ca7; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #ffdde1,
+    #ee9ca7
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #ffdde1,
+    #ee9ca7
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
 nav a {
   color: black;
 }
 
 a:hover {
-  color: none;
+  color: #fff;
   text-decoration: none;
 }
 /* App */

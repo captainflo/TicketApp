@@ -32,7 +32,7 @@ const SearchActivities = (props) => {
 
         <div className="button-search">
           <button
-            className="btn btn-primary shadow rounded"
+            className="btn btn-primary shadow rounded btn-website"
             type="submit"
             disabled={submitting}
           >

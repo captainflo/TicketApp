@@ -52,7 +52,7 @@ const TicketCardShow = ({ ticket, createOrder }) => {
             amount={ticket.price * 100}
             name="Ticket App"
           >
-            <button className="btn btn-primary">Payment</button>
+            <button className="btn btn-primary btn-website">Payment</button>
           </StripeCheckout>
         )}
       </div>
