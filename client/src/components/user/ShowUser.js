@@ -41,7 +41,7 @@ const ShowUser = (props) => {
         </div>
         <div className="col-md-7 col-sm-12">
           <div className="wrapper-all-ticket">
-            <h2>All Your tickets</h2>
+            <h2>All your tickets in Sell</h2>
             {displayTickets}
             <h2>
               Total Sell{' '}
