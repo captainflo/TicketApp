@@ -34,3 +34,6 @@ The concept of this project was to create an provide services for buyers and sel
 - lodash
 - axios
 - ...
+
+**Front-End**
+[Live Demo](https://guarded-tor-38601.herokuapp.com/)
